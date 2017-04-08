@@ -53,19 +53,24 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a,b,c){ //eslint-disable-line
+  var convertArray = Array.of(a,b,c);
+  var arrayCounter = 0;
+  var arrayCounterMultiply = 1;
+  var i, y;
 
-  var addArguments = sum(a,b);
-  var addSecondArgument = sum(addArguments[0], c);
+  for(i = 0; i < convertArray.length; i++){
+    arrayCounter = sum(arrayCounter, convertArray[i])[0];
+  }
 
-  var productOfArguments = multiply(a,b);
-  var productOfSecondArgument = multiply(productOfArguments[0],c);
+  for(y = 0; y < convertArray.length; y++){
+    arrayCounterMultiply = multiply(arrayCounterMultiply, convertArray[y])[0];
+  }
 
-  var thirdElement = a + ' and ' + b + ' and ' + c + ' sum to ' + addSecondArgument[0] + '.';
-  var fourthElement = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productOfSecondArgument[0] + '.';
+  var thirdElement = convertArray.join(' and ') + ' sum to ' + arrayCounter + '.';
+  var fourthElement = 'The product of ' + convertArray.join(' and ') + ' is ' + arrayCounterMultiply + '.';
+  var solutionToProblem = [arrayCounter, arrayCounterMultiply, thirdElement, fourthElement];
 
-  var result = [addSecondArgument[0],productOfSecondArgument[0],thirdElement,fourthElement];
-
-  return result;
+  return solutionToProblem;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -119,7 +124,7 @@ function multiplyArray(testArray){ //eslint-disable-line
 
   var setSecondAnswer = 'The numbers ' + getValuesOfArray + ' have a product of ' + computingArray +'.';
   var AnswerToProblem = [computingArray, setSecondAnswer];
-  
+
   return AnswerToProblem
 }
 
