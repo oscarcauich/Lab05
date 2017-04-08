@@ -110,10 +110,20 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(testArray){ //eslint-disable-line
-console.log('test');
+  var computingArray = 1;
+  var i;
+  for(i = 0; i < testArray.length; i++){
+    computingArray = multiply(computingArray, testArray[i])[0];
+  }
+  var getValuesOfArray = testArray.toString();
+
+  var setSecondAnswer = 'The numbers ' + getValuesOfArray + ' have a product of ' + computingArray +'.';
+  var AnswerToProblem = [computingArray, setSecondAnswer];
+  
+  return AnswerToProblem
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(2,3,4);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
